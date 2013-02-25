@@ -1,0 +1,12 @@
+﻿---
+hide_in_sitemap: true
+---
+<%= xml_sitemap :items => @items.reject { |i|
+  reps = i.reps.reject { |r| r.path.nil? }
+
+  i.binary? ||
+  i[:hide_in_sitemap] == true ||
+  reps.any? { |r| r.path.end_with? '.js' } ||
+  reps.any? { |r| r.path.end_with? '.css' } ||
+  reps.any? { |r| r.path.end_with? '.config' }
+} %>

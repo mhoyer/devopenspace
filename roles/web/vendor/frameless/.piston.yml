@@ -1,0 +1,8 @@
+---
+repository_url: git://github.com/jonikorpi/Frameless.git
+lock: false
+repository_class: Piston::Git::Repository
+format: 1
+handler:
+  commit: ee05f5f4bb976cd5cda523a1fef6faf2e78eeed7
+  branch: master

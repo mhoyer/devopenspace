@@ -1,0 +1,8 @@
+---
+repository_url: git://github.com/bitmanic/rem.git
+lock: false
+repository_class: Piston::Git::Repository
+format: 1
+handler:
+  commit: 22e00fd17090a25d0a3f3197d490522184ebdacb
+  branch: master

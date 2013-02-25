@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Reference Include="Sample-Ref-1">
+      <HintPath>somewhere\Sample-Ref-1.dll</HintPath>
+    </Reference>
+    <Reference Include="Sample-Ref-2" />
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sample.cs" />
+    <Compile Include="SampleSpecs.cs">
+      <DependentUpon>Sample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Specs.cs" />
+  </ItemGroup>
+</Project>

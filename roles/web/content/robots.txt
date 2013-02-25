@@ -1,0 +1,12 @@
+---
+hide_in_sitemap: true
+---
+<% if configatron.env !~ /production/ %>
+User-agent: *
+Disallow: /
+<% else %>
+User-agent: *
+<% files = @items.select { |i| i[:robots_disallow] == true } %><% if files and files.count > 0 %>
+<% files.each do |file| %><%= "Disallow: #{file.path}" %>
+<% end %>
+<% end %><% end %>

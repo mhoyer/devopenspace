@@ -1,0 +1,8 @@
+/[if lt IE 8]
+  %html{ :class => "no-js ie lt-ie8", :lang => "de" }
+/[if IE 8]
+  %html{ :class => "no-js ie ie8", :lang => "de" }
+/[if IE 9]
+  %html{ :class => "no-js ie ie9", :lang => "de" }
+:erb
+  <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="de"> <!--<![endif]-->

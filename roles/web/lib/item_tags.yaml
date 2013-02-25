@@ -1,0 +1,21 @@
+book_author:
+  text: Buch&shy;autor
+  title: Das Training wird von einem Buchautor im Fachbereich durchgeführt.
+gruppe:
+  text: Gruppe
+  title: Das Training optimiert die Zusammenarbeit und die Kommunikation insbesondere in der Gruppe.
+jb:
+  text: JB
+  title: Der Trainer wurde mit dem „JetBrains Academy“-Award ausgezeichnet.
+licenses:
+  text: Lizenz&shy;rabatt
+  title: Wir bieten Rabattcodes für Lizenzen für Software mit Bezug zu diesem Training an.
+mvp:
+  text: MVP
+  title: Der Trainer wurde mit dem „Microsoft Most Valuable Professional“-Award ausgezeichnet.
+number_of_attendees:
+  match: !ruby/regexp '/^f.r\s+(.*)/'
+  title: Die empfohlene Anzahl Teilnehmer einer Gruppe ist \1.
+training_length:
+  match: !ruby/regexp '/^(\d+)\s+(Tag.*)/'
+  title: Die empfohlene Dauer des Trainings ist \1 \2.

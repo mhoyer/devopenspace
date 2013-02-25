@@ -1,0 +1,59 @@
+global: &global
+  app:
+    base_url: http://localhost
+    compress_output: false
+    pretty: false
+
+  build:
+    configuration: Debug
+
+  inwx:
+    user: <%= ENV['INWX_USER'] %>
+    password: <%= ENV['INWX_PASSWORD'] %>
+
+  deployment:
+    bindings:
+      - { :protocol: http, :host: devopenspace.local }
+      - { :protocol: http, :host: localhost }
+    base_href: /
+    location: C:/devopenspace/development/web
+
+development:
+  default_to: global
+
+compress:
+  default_to: global
+
+  app:
+    compress_output: true
+    pretty: true
+
+qa:
+  default_to: global
+
+  build:
+    configuration: Release
+
+  app:
+    base_url: http://beta.devopenspace.de
+    compress_output: true
+    pretty: true
+
+  deployment:
+    bindings:
+      - { :protocol: http, :host: beta.devopenspace.de }
+    base_href: /
+    location: C:/devopenspace/qa/web
+
+production:
+  default_to: qa
+
+  app:
+    base_url: http://devopenspace.de
+
+  deployment:
+    bindings:
+      - { :protocol: http,  :host: devopenspace.de }
+      - { :protocol: http,  :host: www.devopenspace.de }
+    base_href: /
+    location: C:/devopenspace/production/web

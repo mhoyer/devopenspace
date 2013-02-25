@@ -1,0 +1,35 @@
+global: &global
+  project: devopenspace.de
+
+  build:
+    number: <%= ENV['BUILD_NUMBER'] %>
+    commit_sha: <%= ENV['BUILD_VCS_NUMBER'] || "no SHA" %>
+    branch: <%= (ENV['BUILD_VCS_BRANCH'] || "master").split(%r|/|)[-1] %>
+
+  deployment:
+    logfile: deploy/msdeploy.log
+    connection:
+      server: localhost
+      user: <%= ENV['DEPLOY_USER'] || ENV['COMPUTERNAME'] + "\\Administrator" %>
+      password: <%= ENV['DEPLOY_PASSWORD'] %>
+
+  tools:
+    msdeploy: tools/MSDeploy/msdeploy.exe
+    zip: tools/7-Zip/7za.exe
+    htmlcompressor: tools/HtmlCompressor/htmlcompressor-1.5.3.jar
+
+development:
+  default_to: global
+
+compress:
+  default_to: global
+
+qa:
+  default_to: global
+
+  deployment:
+    connection:
+      server: devopenspace.de
+
+production:
+  default_to: qa
