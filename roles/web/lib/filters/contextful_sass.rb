@@ -2,6 +2,8 @@ class ContextfulSass < Nanoc::Filters::Sass
   identifier :contextful_sass
   type :text
 
+  requires 'sass', 'nanoc/filters/sass/sass_filesystem_importer'
+
   def run(content, params={ })
     params[:custom] = ::Nanoc::Context.new(assigns)
 
