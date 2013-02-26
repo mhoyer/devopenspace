@@ -10,7 +10,7 @@ global: &global
     logfile: deploy/msdeploy.log
     connection:
       server: localhost
-      user: <%= ENV['DEPLOY_USER'] || ENV['COMPUTERNAME'] + "\\Administrator" %>
+      user: <%= ENV['DEPLOY_USER'] || ENV['COMPUTERNAME'] || '' + "\\Administrator" %>
       password: <%= ENV['DEPLOY_PASSWORD'] %>
 
   tools:
