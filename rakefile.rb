@@ -96,7 +96,7 @@ namespace :generate do
   desc 'Updates the configuration files for the build'
   task :config do
     Build.templates.each do |template|
-      QuickTemplate.exec(template, configatron)
+      QuickTemplate.exec template
     end
   end
 end

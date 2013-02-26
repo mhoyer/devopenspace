@@ -1,13 +1,13 @@
 require 'erb'
 
 class QuickTemplate
-  def self.exec(file, args)
+  def self.exec(file)
     ensure_template file
 
     result_file = file.ext('')
     puts "Creating file #{result_file}"
 
-    result = execute_erb file, args
+    result = execute_erb file
 
     File.open(result_file, 'w') do
       |f| f.write(result)
@@ -37,7 +37,7 @@ class QuickTemplate
     end
   end
 
-  def self.execute_erb(file, args)
+  def self.execute_erb(file)
     template = replace_at_sign_placeholders_with_erb_style File.read(file)
 
     erb = ERB.new(template, nil, "%")
