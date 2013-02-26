@@ -52,7 +52,6 @@ describe "page URLs" do
                                               :roles => {
                                                       :web => {
                                                               :deployment => {
-                                                                      :base_href => 'base-href/',
                                                                       :bindings => [
                                                                               { :host => 'host', :protocol => 'http' },
                                                                               { :host => 'host-ssl', :protocol => 'https' }
@@ -70,20 +69,20 @@ describe "page URLs" do
 
     context "when creating a link to an item" do
       it "should create a relative link" do
-        @item.url.should == "/base-href/path/to/the/item"
+        @item.url.should == "/path/to/the/item"
       end
     end
 
     context "when creating an absolute link to an item" do
       it "should create an absolute link" do
-        @item.absolute_url.should == "http://host/base-href/path/to/the/item"
+        @item.absolute_url.should == "http://host/path/to/the/item"
       end
     end
 
     context "when creating an absolute link to an item in the development environment" do
       it "should create a relative link" do
         configatron.env = "development"
-        @item.absolute_url.should == "/base-href/path/to/the/item"
+        @item.absolute_url.should == "/path/to/the/item"
         configatron.env = nil
       end
     end
@@ -106,7 +105,7 @@ describe "page URLs" do
       end
 
       it "should create an absolute link to the destination" do
-        @item.absolute_url.should == "http://host/base-href/path/to/the/destination"
+        @item.absolute_url.should == "http://host/path/to/the/destination"
       end
     end
   end
@@ -126,7 +125,6 @@ describe "page URLs" do
                                                         :web => {
                                                                 :certificate => :configured,
                                                                 :deployment => {
-                                                                        :base_href => 'base-href/',
                                                                         :bindings => [
                                                                                 { :host => 'host', :protocol => 'http' },
                                                                                 { :host => 'host-ssl', :protocol => 'https' }
@@ -148,7 +146,7 @@ describe "page URLs" do
         end
 
         it "should create an absolute https:// link to the first configured SSL binding" do
-          @item.url.should == "https://host-ssl/base-href/path/to/the/item"
+          @item.url.should == "https://host-ssl/path/to/the/item"
         end
 
         it "should create the same URL for relative and absolute links" do
@@ -157,7 +155,7 @@ describe "page URLs" do
 
         it "should create a relative link in the development environment" do
           configatron.env = "development"
-          @item.absolute_url.should == "/base-href/path/to/the/item"
+          @item.absolute_url.should == "/path/to/the/item"
           configatron.env = nil
         end
       end
@@ -176,7 +174,6 @@ describe "page URLs" do
                                                 :roles => {
                                                         :web => {
                                                                 :deployment => {
-                                                                        :base_href => 'base-href/',
                                                                         :bindings => [
                                                                                 { :host => 'host', :protocol => 'http' },
                                                                                 { :host => 'host-ssl', :protocol => 'https' }
@@ -198,12 +195,12 @@ describe "page URLs" do
         end
 
         it "should create a relative link" do
-          @item.url.should == "/base-href/path/to/the/item"
+          @item.url.should == "/path/to/the/item"
         end
 
         it "should create a relative link in the development environment" do
           configatron.env = "development"
-          @item.absolute_url.should == "/base-href/path/to/the/item"
+          @item.absolute_url.should == "/path/to/the/item"
           configatron.env = nil
         end
       end

@@ -13,7 +13,7 @@ images_dir            = ""
 # Output paths.
 css_dir               = "build/bin/assets/css"
 generated_images_path = "build/bin/assets/images/sprites"
-http_path             = configatron.roles.web.deployment.base_href
+http_path             = "/"
 http_stylesheets_path = http_path + "assets/css"
 http_images_path      = http_path + "assets/images"
 

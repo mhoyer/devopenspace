@@ -3,7 +3,7 @@ compile '/assets/js/webshim/shims/*/' do
 end
 
 route '/assets/js/webshim/shims/*/' do
-  @config[:root] + @item.identifier.chop + '.' + @item[:extension]
+  @item.identifier.chop + '.' + @item[:extension]
 end
 
 compile '/assets/js/*/' do

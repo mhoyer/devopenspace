@@ -15,7 +15,6 @@ global: &global
     bindings:
       - { :protocol: http, :host: devopenspace.local }
       - { :protocol: http, :host: localhost }
-    base_href: /
     location: C:/devopenspace/development/web
 
 development:
@@ -42,7 +41,6 @@ qa:
   deployment:
     bindings:
       - { :protocol: http, :host: beta.devopenspace.de }
-    base_href: /
     location: C:/devopenspace/qa/web
 
 production:
@@ -53,7 +51,6 @@ production:
 
   deployment:
     bindings:
-      - { :protocol: http,  :host: devopenspace.de }
-      - { :protocol: http,  :host: www.devopenspace.de }
-    base_href: /
+      - { :protocol: http, :host: devopenspace.de }
+      - { :protocol: http, :host: www.devopenspace.de }
     location: C:/devopenspace/production/web

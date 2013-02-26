@@ -3,7 +3,7 @@ compile %r|.*?/web/$| do
 end
 
 route %r|.*?/web/$| do
-  @config[:root] + @item.identifier.chop + '.' + @item[:extension]
+  @item.identifier.chop + '.' + @item[:extension]
 end
 
 compile %r{/(robots|sitemap|google.*)/} do
@@ -11,14 +11,14 @@ compile %r{/(robots|sitemap|google.*)/} do
 end
 
 route %r{/(robots|sitemap|google.*)/} do
-  @config[:root] + @item.identifier.chop + '.' + @item[:extension]
+  @item.identifier.chop + '.' + @item[:extension]
 end
 
 compile '/assets/css/app/' do
   filter :contextful_sass, Compass.sass_engine_options
   filter :replace, {
-          :pattern => %r|url\('#{configatron.roles.web.deployment.base_href}content/|,
-          :replacement => "url('#{configatron.roles.web.deployment.base_href}"
+          :pattern => %r|url\('/content/|,
+          :replacement => "url('"
   }
 
   filter :cache_buster
@@ -38,7 +38,7 @@ route '/assets/css/app/' do
     fingerprint(file.path)
   end
 
-  @config[:root] + @item.identifier.chop + fp + '.css'
+  @item.identifier.chop + fp + '.css'
 end
 
 route '/assets/*/' do
@@ -75,11 +75,11 @@ compile '*' do
 end
 
 route '/fehler/*' do
-  @config[:root] + @item.identifier.chop + '.html'
+  @item.identifier.chop + '.html'
 end
 
 route '*' do
-  @config[:root] + @item.slug + 'index.html' unless @item[:forward]
+  @item.slug + 'index.html' unless @item[:forward]
 end
 
 layout '*', :haml, :format => :html5, :attr_wrapper => '"'

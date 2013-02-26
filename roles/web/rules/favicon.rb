@@ -8,9 +8,9 @@ favicon = '/assets/images/favicon/'
 
   route favicon, :rep => rep do
     if rep == :default
-      @config[:root] + @item.identifier.chop + fingerprint(@item[:filename]) + '.ico'
+      @item.identifier.chop + fingerprint(@item[:filename]) + '.ico'
     else
-      @config[:root] + '/' + File.basename(@item.identifier.chop) + '.ico'
+      '/' + File.basename(@item.identifier.chop) + '.ico'
     end
   end
 
@@ -29,12 +29,12 @@ end
 
     route favicon, :rep => rep_dim do
       if rep == :apple
-        @config[:root] + File.dirname(@item.identifier) + '/apple-touch-icon-' + dim + fingerprint(@item[:filename]) + '.' + @item[:extension]
+        File.dirname(@item.identifier) + '/apple-touch-icon-' + dim + fingerprint(@item[:filename]) + '.' + @item[:extension]
       else
         if dimension == 57
-          @config[:root] + '/apple-touch-icon.' + @item[:extension]
+          '/apple-touch-icon.' + @item[:extension]
         else
-          @config[:root] + '/apple-touch-icon-' + dim + '.' + @item[:extension]
+          '/apple-touch-icon-' + dim + '.' + @item[:extension]
         end
 
       end

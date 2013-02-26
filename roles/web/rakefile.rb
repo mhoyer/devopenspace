@@ -14,7 +14,7 @@ task :package => [:clean, :compile] do
   temp_package = "tmp/package/"
   mkdir_p temp_package
 
-  source_dir = 'build/bin' + configatron.roles.web.deployment.base_href
+  source_dir = 'build/bin'
   FileList.new() \
         .include("#{source_dir}/**/**") \
         .exclude("#{source_dir}/bin/*.xml") \

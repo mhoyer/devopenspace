@@ -21,11 +21,6 @@ enable_output_diff: false
 
 # Base URL, used for the Atom feed.
 base_url: <%= configatron.roles.web.app.base_url.chomp('/') %>
-<%
-  root = configatron.roles.web.deployment.base_href.chop
-  root = '""' if root.blank?
-%>
-root: <%= root %>
 
 watcher:
   # A list of directories to watch for changes. When editing this, make sure that

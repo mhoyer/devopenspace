@@ -9,7 +9,7 @@ compile '/assets/images/headshots/*/', :rep => :small do
 end
 
 route '/assets/images/headshots/*/', :rep => :small do
-  @config[:root] + @item.identifier.chop + '-small' + fingerprint(@item[:filename]) + '.png'
+  @item.identifier.chop + '-small' + fingerprint(@item[:filename]) + '.png'
 end
 
 compile '/assets/images/library/*/', :rep => :sidebar do
@@ -33,7 +33,7 @@ route '/assets/images/articles/*/' do
 end
 
 route %{/assets/images/(articles|library|headshots/trainer)/.*}, :rep => :sidebar do
-  @config[:root] + @item.identifier.chop + fingerprint(@item[:filename]) + '.png'
+  @item.identifier.chop + fingerprint(@item[:filename]) + '.png'
 end
 
 compile '/assets/images/misc/amazon-kindle/' do

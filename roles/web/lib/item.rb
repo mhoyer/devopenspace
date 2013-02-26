@@ -29,15 +29,13 @@ module Helpers
           return absolute_url params
         end
 
-        base_href = configatron.roles.web.deployment.base_href
-        one_slash "/#{base_href}/#{path(params)}"
+        one_slash "/#{path(params)}"
       end
 
       def absolute_url(params = { })
         return @site.items.find!(self[:forward]).absolute_url(params) if self[:forward]
 
-        base_href = configatron.roles.web.deployment.base_href
-        path = one_slash "/#{base_href}/#{path(params)}"
+        path = one_slash "/#{path(params)}"
 
         return path if configatron.env =~ /development/
 
