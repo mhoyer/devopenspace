@@ -1,7 +1,8 @@
 require 'bundler/setup' unless ENV['RUBYOPT'] =~ /bundler/ # Would fail otherwise if we run integration specs.
 require 'rake/clean'
 require 'configatron'
-require './lib/configatron'
+require 'rspec/core/rake_task'
+require './lib/configatron/extensions'
 require './lib/tasks'
 
 include Rake::DSL
@@ -105,7 +106,11 @@ desc 'Compiles all roles'
 task :compile
 
 desc 'Tests all roles'
-task :test
+RSpec::Core::RakeTask.new(:test) do |t|
+  t.pattern = './spec{,/*/**}/*_spec.rb'
+  t.rspec_opts = %w(--backtrace --format documentation)
+  t.verbose = true
+end
 
 desc 'Packages the build artifacts'
 task :package

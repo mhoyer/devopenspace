@@ -1,3 +1,5 @@
+require 'configatron'
+
 class Configatron::Store
   def safe!
     protect_all!

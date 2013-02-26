@@ -1,3 +1,5 @@
+require 'configatron'
+
 class Configatron::Store
   class Hidden
     def initialize(underlying_value)
@@ -25,4 +27,3 @@ class Configatron::Store
     end
   end
 end
-
