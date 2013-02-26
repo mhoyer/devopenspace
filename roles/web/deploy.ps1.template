@@ -2,7 +2,6 @@ $ErrorActionPreference = 'Stop'
 
 $scriptPath = Split-Path -parent $MyInvocation.MyCommand.Definition
 Import-Module "$scriptPath\tools\deployment-tools"
-Import-Module "$scriptPath\tools\Carbon"
 Import-Module WebAdministration
 
 $permissions = @{
