@@ -46,7 +46,7 @@ class Roles
   end
 
   def explicit_roles
-    return self unless explicit_role_tasks.any?
-    self.select { |role| explicit_role_tasks.any? { |task| task == role[:task] } }
+    return application_roles unless explicit_role_tasks.any?
+    application_roles.select { |role| explicit_role_tasks.any? { |explicit| explicit == role[:name] } }
   end
 end
